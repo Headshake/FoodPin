@@ -37,13 +37,12 @@ class RestaurantTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell{
         let cellIdentifier = "datacell"
-        let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! RestaurantTableViewCell
 
         // Configure the cell...
-        cell.textLabel?.text = restaurantNames[indexPath.row]
-        
-        
-        cell.imageView?.image = UIImage(named: restaurantImages[indexPath.row])
+        cell.nameLabel.text = restaurantNames[indexPath.row] //optional chaining (? check if the input of the name Label is empty)
+            //but in this case the nameLabel is connected to the name from the data, therefore the input will never be empty
+        cell.thumbnailImageView.image = UIImage(named: restaurantImages[indexPath.row])
          
         return cell
     }
