@@ -21,7 +21,7 @@ class RestaurantTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        navigationController?.navigationBar.prefersLargeTitles = true
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -62,7 +62,11 @@ class RestaurantTableViewController: UITableViewController {
 
         return cell
     }
-
+    
+    
+    
+/*
+    //using check-in, delete, share and uncheck-in button
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 
     // Create an option menu as an action sheet
@@ -178,6 +182,17 @@ class RestaurantTableViewController: UITableViewController {
             
     return swipeConfiguration
     }
+ */
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "showRestaurantDetail" {
+            if let indexPath = tableView.indexPathForSelectedRow {
+                let destinationController = segue.destination as! RestaurantDetailViewController
+                destinationController.restaurantImageName = restaurantImages[indexPath.row]
+            }
+        }
+    }
+
 
     /*
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

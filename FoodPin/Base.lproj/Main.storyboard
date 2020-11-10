@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="E86-Nr-r73">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Hsg-TL-NeQ">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15705"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Restaurant Table View Controller-->
+        <!--FoodPin-->
         <scene sceneID="C04-JR-rzp">
             <objects>
                 <tableViewController id="E86-Nr-r73" customClass="RestaurantTableViewController" customModule="FoodPin" sceneMemberID="viewController">
@@ -70,6 +71,7 @@
                                     <outlet property="nameLabel" destination="Rmd-qy-LwO" id="USn-PT-tya"/>
                                     <outlet property="thumbnailImageView" destination="AQP-w6-P01" id="bO1-Hg-MnJ"/>
                                     <outlet property="typeLabel" destination="jdV-VB-30Q" id="fV3-tk-prh"/>
+                                    <segue destination="9xQ-RK-2At" kind="show" identifier="showRestaurantDetail" id="wgP-ub-lAd"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -78,8 +80,57 @@
                             <outlet property="delegate" destination="E86-Nr-r73" id="tfz-bj-keS"/>
                         </connections>
                     </tableView>
+                    <navigationItem key="navigationItem" title="FoodPin" id="oOV-iq-iQ5"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1y2-UZ-rVE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="966.66666666666674" y="25.446428571428569"/>
+        </scene>
+        <!--Restaurant Detail View Controller-->
+        <scene sceneID="dNP-Uj-Cbq">
+            <objects>
+                <viewController id="9xQ-RK-2At" customClass="RestaurantDetailViewController" customModule="FoodPin" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="AOm-GR-RWZ">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="UDy-zx-Gue">
+                                <rect key="frame" x="0.0" y="88" width="414" height="774"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="UDy-zx-Gue" firstAttribute="leading" secondItem="Gt7-PQ-6Bf" secondAttribute="leading" id="20I-zz-GmN"/>
+                            <constraint firstItem="UDy-zx-Gue" firstAttribute="top" secondItem="Gt7-PQ-6Bf" secondAttribute="top" id="e46-RF-1mf"/>
+                            <constraint firstItem="Gt7-PQ-6Bf" firstAttribute="trailing" secondItem="UDy-zx-Gue" secondAttribute="trailing" id="hCB-rE-2Cj"/>
+                            <constraint firstItem="Gt7-PQ-6Bf" firstAttribute="bottom" secondItem="UDy-zx-Gue" secondAttribute="bottom" id="ivJ-O4-zYL"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Gt7-PQ-6Bf"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="a3D-Lc-iWg"/>
+                    <connections>
+                        <outlet property="restaurantImageView" destination="UDy-zx-Gue" id="Upb-bu-9nh"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="CqJ-5b-IKo" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1968" y="31"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="Luq-HN-YB3">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Hsg-TL-NeQ" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="yBf-sp-grS">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="E86-Nr-r73" kind="relationship" relationship="rootViewController" id="pep-6S-kTL"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="FdZ-rI-Ocv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="56.521739130434788" y="25.446428571428569"/>
         </scene>
